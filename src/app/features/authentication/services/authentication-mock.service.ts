@@ -1,22 +1,26 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthenticatonServiceInterface } from './authenticaton-service-interface';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthenticationResponse } from '../types/authentication-response.interface';
-import { environment } from '../../../../environments/environment';
 import { map } from 'rxjs/operators';
+import { environment } from '../../../../environments/environment';
 import { User } from '../../access-management/types/user.interface';
+import { AuthenticationResponse } from '../types/authentication-response.interface';
+import { AuthenticationServiceInterface } from './authentication-service-interface';
 
 @Injectable()
-export class AuthenticationMockService implements AuthenticatonServiceInterface {
+export class AuthenticationMockService
+  implements AuthenticationServiceInterface {
+  constructor(private http: HttpClient) {}
 
-    constructor(private http: HttpClient) {
-    }
-
-    signIn(payload: { userName: string; password: string }): Observable<AuthenticationResponse> {
-        return this.http.get(`${ environment.baseUrl }/users`).pipe(
-            map((users: User[]) => users.find(u => u.userName === payload.userName)),
-            map((user: User) => ({ user, token: 'token' }))
-        );
-    }
+  signIn(payload: {
+    userName: string;
+    password: string;
+  }): Observable<AuthenticationResponse> {
+    return this.http.get(`${environment.baseUrl}/users`).pipe(
+      map((users: User[]) =>
+        users.find((u) => u.userName === payload.userName),
+      ),
+      map((user: User) => ({ user, token: 'token' })),
+    );
+  }
 }
