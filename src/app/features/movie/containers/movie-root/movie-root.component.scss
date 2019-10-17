@@ -17,12 +17,6 @@
 .like {
     background-image: url('/assets/images/like-colored.png');
 }
-.play.active {
-    background-image: url('/assets/images/play-blank.png');
-}
-.like.active {
-    background-image: url('/assets/images/like-blank.png');
-}
 
 nav {
     display: flex;
@@ -59,6 +53,12 @@ nav {
                 border-radius: 5px;
                 background-color: #656cf6;
                 color: white;
+                .play {
+                    background-image: url('/assets/images/play-blank.png');
+                }
+                .like {
+                    background-image: url('/assets/images/like-blank.png');
+                }
             }
         }
     }
