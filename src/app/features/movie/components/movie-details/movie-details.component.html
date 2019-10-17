@@ -1,0 +1,48 @@
+<div mat-dialog-title class="heading">
+    <button (click)="onNoClick()" mat-fab aria-label="Example icon-button with a heart icon">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div class="heading__title">
+        <p>{{ data.Title }}</p>
+        <p>{{ data.Genre }}</p>
+    </div>
+</div>
+<div mat-dialog-content class="movie__details">
+    <figure class="movie__image">
+        <img [src]="data.Poster" />
+    </figure>
+    <section>
+        <ul>
+            <li>
+                <p>{{ data.Plot }}</p>
+            </li>
+            <li>
+                <p>{{ data.Production }}</p>
+            </li>
+            <li>
+                <p>{{ data.Actors }}</p>
+            </li>
+            <li>
+                <p>{{ data.Released }}</p>
+            </li>
+            <li>
+                <p>{{ data.Runtime }}</p>
+            </li>
+            <li>
+                <p>{{ data.Director }}</p>
+            </li>
+            <li>
+                <p>{{ data.Rated }}</p>
+            </li>
+            <li>
+                <p>{{ data.Country }}</p>
+            </li>
+            <li>
+                <p>{{ data.Language }}</p>
+            </li>
+        </ul>
+    </section>
+</div>
+<div mat-dialog-actions class="actions">
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Like</button>
+</div>
