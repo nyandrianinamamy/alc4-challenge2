@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, filter, map, switchMap } from 'rxjs/operators';
+import { routeChange } from 'src/app/core/store/actions/router.actions';
 import { MovieService } from '../../services/movie.service';
 import * as MovieActions from './../actions/movie.actions';
 
@@ -17,6 +18,14 @@ export class MovieEffects {
                     catchError((error) => of(MovieActions.loadMoviesFailure(error))),
                 ),
             ),
+        ),
+    );
+
+    loadMoviesRoute$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(routeChange),
+            filter((action) => action.path.includes('movies')),
+            map((action) => MovieActions.loadMovies()),
         ),
     );
 }
