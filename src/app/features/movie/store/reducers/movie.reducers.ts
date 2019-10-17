@@ -32,6 +32,11 @@ const movieReducer = createReducer(
         moviesLoaded: false,
         error: error,
     })),
+    on(MovieActions.loadFavoritesSuccess, (state, { data }) => ({
+        ...state,
+        movies: data,
+    })),
+    on(MovieActions.loadFavorites, (state) => ({ ...state })),
 );
 
 export function reducer(state: MovieState | undefined, action: Action) {

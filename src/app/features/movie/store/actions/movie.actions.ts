@@ -11,3 +11,16 @@ export const loadMoviesFailure = createAction(
     '[Movie] Load Movies Failure',
     props<{ error: HttpErrorResponse }>(),
 );
+export const addToFavorite = createAction(
+    '[MOVIE] Add to Favorite',
+    props<{ data: MovieInterface }>(),
+);
+export const loadFavorites = createAction('[MOVIE] Load Favorites');
+export const loadFavoritesSuccess = createAction(
+    '[MOVIE] Load Favorites Success',
+    props<{ data: MovieInterface[] }>(),
+);
+export const loadFavoritesError = createAction(
+    '[MOVIE] Load Favorites Error',
+    props<{ error: HttpErrorResponse }>(),
+);
