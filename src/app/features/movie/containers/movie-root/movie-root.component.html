@@ -1,12 +1,18 @@
-<header>Moviezzz.com</header>
+<nav>
+    <h1>MovieZzz</h1>
+    <ul>
+        <a routerLink="/movies" routerLinkActive="active"
+            ><i class="play icon-button" routerLinkActive="active"></i>
+            <p>Movies</p></a
+        >
+        <a routerLink="/favorites" routerLinkActive="active"
+            ><i class="like icon-button" routerLinkActive="active"></i>
+            <p>Favorites</p></a
+        >
+    </ul>
+</nav>
 
 <main>
-    <nav>
-        <ul>
-            <li>Movies</li>
-            <li>Favorites</li>
-        </ul>
-    </nav>
     <section class="movie__list">
         <app-movie-list
             (view)="openDialog($event)"
