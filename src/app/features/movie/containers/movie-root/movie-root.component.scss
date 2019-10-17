@@ -1,62 +1,39 @@
 :host {
-  display: grid;
-  grid-template-rows: 3em auto;
-  height: 100%;
+    display: grid;
+    grid-template-rows: 3em auto;
+    height: 100%;
 }
 
 header {
-  background-color: blue;
+    background-color: blue;
 }
 
 main {
-  display: grid;
-  grid-template-columns: 5em auto;
-  nav {
-    background-color: green;
+    display: grid;
+    grid-template-columns: 5em auto;
+    nav {
+        background-color: green;
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
     }
-  }
 
-  .movie {
-    display: flex;
-    flex-direction: column;
-    padding: 3em 7em 3em 7em;
-    background-color: cyan;
-
-    article {
-      display: flex;
-      flex-direction: row;
-      .movie__image {
-        border: 1px solid gray;
-        width: 30em;
-        height: 20em;
-        margin: 0;
-      }
-      .movie__details {
-        display: flex;
-        flex-direction: column;
-      }
-    }
     .movie__list {
-      display: flex;
-      flex-direction: row;
-      .movie__card {
-        border: 1px solid gray;
-        width: 10em;
-        height: 20em;
-      }
+        display: flex;
+        flex-direction: row;
+        padding: 3em 7em 3em 7em;
+        background-color: cyan;
+        flex-wrap: wrap;
     }
-  }
 }
 
 @media (max-width: 800px) {
-  main {
-    .movie {
-      padding: 1em;
+    main {
+        .movie__list {
+            padding: 1em;
+        }
     }
-  }
 }

@@ -1,0 +1,25 @@
+.movie__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15em;
+    height: 20em;
+    cursor: pointer;
+
+    figure {
+        img {
+            width: 100%;
+            max-width: 15em;
+            height: auto;
+            object-fit: cover;
+        }
+
+        figcaption {
+            background-color: #222;
+            color: #fff;
+            font: italic smaller sans-serif;
+            padding: 3px;
+            text-align: center;
+        }
+    }
+}

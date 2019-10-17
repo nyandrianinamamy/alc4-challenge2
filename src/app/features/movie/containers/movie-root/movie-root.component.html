@@ -1,32 +1,17 @@
 <header>Moviezzz.com</header>
 
 <main>
-  <nav>
-    <ul>
-      <li>Movies</li>
-      <li>Favorites</li>
-    </ul>
-  </nav>
-  <section class="movie">
-    <article>
-      <figure class="movie__image">
-        <img src="" />
-      </figure>
-      <div class="movie__details">
-        <h3>Title</h3>
-        <p>Description</p>
-      </div>
-    </article>
-    <div class="movie__list">
-      <div class="movie__card">
-        Title
-      </div>
-      <div class="movie__card">
-        Title
-      </div>
-      <div class="movie__card">
-        Title
-      </div>
-    </div>
-  </section>
+    <nav>
+        <ul>
+            <li>Movies</li>
+            <li>Favorites</li>
+        </ul>
+    </nav>
+    <section class="movie__list">
+        <app-movie-list
+            (view)="openDialog($event)"
+            [movie]="movie"
+            *ngFor="let movie of movies$ | async"
+        ></app-movie-list>
+    </section>
 </main>
