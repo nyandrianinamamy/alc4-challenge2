@@ -171,6 +171,41 @@ main {
 }
 
 @media (max-width: 800px) {
+    :host {
+        grid-template-columns: 4em auto;
+    }
+
+    nav {
+        .user {
+            .user__image {
+                figure {
+                    width: 3em;
+                }
+                p {
+                    display: none;
+                }
+            }
+        }
+
+        ul {
+            a {
+                padding-left: 0px;
+                width: 3em;
+                .icon-button {
+                    margin-right: 0;
+                }
+                p {
+                    display: none;
+                }
+            }
+        }
+
+        h1 {
+            height: 5em;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+    }
     main {
         .movie__list {
             padding: 1em;
