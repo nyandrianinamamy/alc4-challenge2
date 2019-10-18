@@ -15,13 +15,17 @@
             padding: 0;
 
             &:nth-child(2) {
-                font-size: 0.5em;
+                font-size: 0.7em;
+                color: #7ca2d5;
             }
         }
     }
 }
+.fill {
+    flex: 1 1 auto;
+}
 .movie__image {
-    width: 20em;
+    width: 35em;
     height: 30em;
     margin: 0;
 }
@@ -35,6 +39,34 @@
             max-width: 20em;
             height: auto;
             object-fit: cover;
+        }
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+        h3 {
+            line-height: 16px;
+        }
+        .movie__about {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                color: #7ca2d5;
+                li {
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        .about {
+            margin-right: 50px;
         }
     }
 }
