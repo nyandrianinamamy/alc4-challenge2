@@ -140,11 +140,26 @@
 }
 
 @media (max-width: 800px) {
+    .dialog,
+    .actions {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .heading {
+        padding-top: 2em;
+        padding-left: 4em;
+    }
+    .actions {
+        padding-bottom: 1em;
+        justify-content: center;
+    }
     .movie__details {
         flex-direction: column;
 
         figure {
             align-self: center;
+            width: 15em;
         }
     }
 }
