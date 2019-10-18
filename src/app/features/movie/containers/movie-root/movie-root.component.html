@@ -13,6 +13,19 @@
 </nav>
 
 <main>
+    <header class="navbar">
+        <div class="navbar__search">
+            <label for="search">Search</label>
+            <mat-icon>search</mat-icon>
+            <input type="text" name="search" placeholder="The avengers, ..." />
+        </div>
+        <div class="fill"></div>
+        <div class="navbar__profile">
+            <button mat-icon-button>
+                <mat-icon>account_circle</mat-icon>
+            </button>
+        </div>
+    </header>
     <section class="movie__list">
         <app-movie-list
             (view)="openDialog($event)"

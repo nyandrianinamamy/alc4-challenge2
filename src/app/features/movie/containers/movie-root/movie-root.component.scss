@@ -66,9 +66,59 @@ nav {
 
 main {
     display: grid;
-    grid-template-rows: 7em auto;
+    grid-template-rows: 5em auto;
     background-color: #eeedf3;
 
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+
+        .fill {
+            flex: 1 1 auto;
+        }
+
+        .navbar__search,
+        .navbar__profile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar__search {
+            position: relative;
+
+            mat-icon {
+                position: absolute;
+                left: 62px;
+                top: 29px;
+                color: rgba(0, 0, 0, 0.5);
+            }
+            input[type='text'] {
+                border: 1px solid white;
+                border-radius: 30px;
+                width: 30em;
+                height: 4em;
+                line-height: normal;
+                padding-left: 50px;
+                outline: none;
+                background-color: #eeedf3;
+                color: rgba(0, 0, 0, 0.5);
+            }
+
+            label {
+                visibility: hidden;
+            }
+        }
+
+        .navbar__profile {
+            width: 5em;
+            mat-icon {
+                color: grey;
+                font-size: 2em;
+            }
+        }
+    }
     .movie__list {
         display: flex;
         flex-direction: row;
