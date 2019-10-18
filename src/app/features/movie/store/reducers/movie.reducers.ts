@@ -5,6 +5,7 @@ import * as MovieActions from '../actions/movie.actions';
 
 export interface MovieState {
     movies: MovieInterface[];
+    favorites: MovieInterface[];
     moviesLoaded: boolean;
     moviesLoading: boolean;
     error: HttpErrorResponse;
@@ -12,6 +13,7 @@ export interface MovieState {
 
 export const initialState: MovieState = {
     movies: [],
+    favorites: [],
     moviesLoaded: false,
     moviesLoading: false,
     error: undefined,
@@ -32,11 +34,14 @@ const movieReducer = createReducer(
         moviesLoaded: false,
         error: error,
     })),
-    on(MovieActions.loadFavoritesSuccess, (state, { data }) => ({
+    // on(MovieActions.loadFavoritesSuccess, (state, { data }) => ({
+    //     ...state,
+    //     movies: [...state.movies.filter((m) => data.some((d) => m.Id === d.Id))],
+    // })),
+    on(MovieActions.loadFavorites, (state) => ({
         ...state,
-        movies: data,
+        movies: state.movies.filter((m) => m.isFavorite),
     })),
-    on(MovieActions.loadFavorites, (state) => ({ ...state })),
 );
 
 export function reducer(state: MovieState | undefined, action: Action) {

@@ -16,11 +16,3 @@ export const addToFavorite = createAction(
     props<{ data: MovieInterface }>(),
 );
 export const loadFavorites = createAction('[MOVIE] Load Favorites');
-export const loadFavoritesSuccess = createAction(
-    '[MOVIE] Load Favorites Success',
-    props<{ data: MovieInterface[] }>(),
-);
-export const loadFavoritesError = createAction(
-    '[MOVIE] Load Favorites Error',
-    props<{ error: HttpErrorResponse }>(),
-);

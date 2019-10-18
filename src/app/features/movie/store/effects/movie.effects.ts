@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, filter, map, switchMap } from 'rxjs/operators';
@@ -8,7 +9,11 @@ import * as MovieActions from './../actions/movie.actions';
 
 @Injectable()
 export class MovieEffects {
-    constructor(private actions$: Actions, private movieService: MovieService) {}
+    constructor(
+        private actions$: Actions,
+        private movieService: MovieService,
+        private router: Router,
+    ) {}
     loadMovies$ = createEffect(() =>
         this.actions$.pipe(
             ofType(MovieActions.loadMovies),
@@ -21,10 +26,37 @@ export class MovieEffects {
         ),
     );
 
+    loadMoviesSuccess$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(MovieActions.loadMoviesSuccess),
+            filter((action) => this.router.url.includes('favorites')),
+            map((action) => MovieActions.loadFavorites()),
+        ),
+    );
+
+    addToFavorite$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(MovieActions.addToFavorite),
+            switchMap((action) =>
+                this.movieService
+                    .insertToFavorites(action.data)
+                    .pipe(map((result) => MovieActions.loadMovies())),
+            ),
+        ),
+    );
+
     loadMoviesRoute$ = createEffect(() =>
         this.actions$.pipe(
             ofType(routeChange),
             filter((action) => action.path.includes('movies')),
+            map((action) => MovieActions.loadMovies()),
+        ),
+    );
+
+    loadFavoritesRoute$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(routeChange),
+            filter((action) => action.path.includes('favorites')),
             map((action) => MovieActions.loadMovies()),
         ),
     );

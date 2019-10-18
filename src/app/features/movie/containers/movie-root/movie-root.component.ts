@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { MovieDetailsComponent } from '../../components/movie-details/movie-details.component';
-import { loadMovies } from '../../store/actions/movie.actions';
+import { addToFavorite } from '../../store/actions/movie.actions';
 import { MovieState } from '../../store/reducers/movie.reducers';
 import { getMovies } from '../../store/selectors/movie.selectors';
 import { MovieInterface } from '../../types/movie.interface';
@@ -25,10 +25,10 @@ export class MovieRootComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe((result) => {
             console.log('The dialog was closed', result);
+            this.movieStore.dispatch(addToFavorite({ data: result }));
         });
     }
     ngOnInit() {
-        this.movieStore.dispatch(loadMovies());
         this.movies$ = this.movieStore.pipe(select(getMovies));
 
         this.movies$.subscribe((result) => console.log(result));
