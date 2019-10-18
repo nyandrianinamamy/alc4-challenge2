@@ -31,14 +31,11 @@ export class MovieMockService implements MovieServiceInterface {
     }
     insertToFavorites(movie: MovieInterface): Observable<boolean> {
         let moviesId: string[] = JSON.parse(sessionStorage.getItem('favorites')) || [];
-        if (moviesId) {
-            if (!moviesId.some((id) => id === movie.Id)) {
-                moviesId.push(movie.Id);
-            } else {
-                moviesId = moviesId.filter((id) => id !== movie.Id);
-            }
+        if (moviesId.length === 0 || !moviesId.some((id) => id === movie.Id)) {
+            moviesId.push(movie.Id);
+        } else {
+            moviesId = moviesId.filter((id) => id !== movie.Id);
         }
-
         sessionStorage.setItem('favorites', JSON.stringify(moviesId));
         return of(true);
     }
