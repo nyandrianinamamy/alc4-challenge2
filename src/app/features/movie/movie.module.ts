@@ -5,17 +5,16 @@ import { StoreModule } from '@ngrx/store';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { environment } from 'src/environments/environment';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
-import { UserContentComponent } from './components/user-content/user-content.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { MovieRootComponent } from './containers/movie-root/movie-root.component';
 import { MovieRoutingModule } from './movie-routing.module';
 import { MovieService } from './services/movie.service';
 import { MovieMockService } from './services/movie.service.mock';
 import { MovieEffects } from './store/effects/movie.effects';
 import * as fromMovie from './store/reducers/movie.reducers';
-import { MovieListComponent } from './components/movie-list/movie-list.component';
 
 @NgModule({
-    declarations: [MovieRootComponent, UserContentComponent, MovieDetailsComponent, MovieListComponent],
+    declarations: [MovieRootComponent, MovieDetailsComponent, MovieListComponent],
     imports: [
         CommonModule,
         MovieRoutingModule,
