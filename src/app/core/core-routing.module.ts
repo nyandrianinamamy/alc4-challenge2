@@ -23,7 +23,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'movie',
+    path: '',
     loadChildren: '../features/movie/movie.module#MovieModule',
   },
 ];
