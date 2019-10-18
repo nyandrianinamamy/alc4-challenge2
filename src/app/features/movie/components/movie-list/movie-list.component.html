@@ -1,6 +1,14 @@
 <div class="movie__card" (click)="view.emit(movie)">
     <figure>
         <img [src]="movie.Poster" />
-        <figcaption>{{ movie.Title }}</figcaption>
     </figure>
+    <p class="movie__title">{{ movie.Title }}</p>
+    <div class="detail__title">
+        <p>Released</p>
+        <p>Runtime</p>
+    </div>
+    <div class="detail__content">
+        <p>{{ movie.Released }}</p>
+        <p>{{ movie.Runtime }}</p>
+    </div>
 </div>

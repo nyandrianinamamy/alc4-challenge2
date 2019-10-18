@@ -43,10 +43,13 @@
         </div>
     </header>
     <section class="movie__list">
-        <app-movie-list
-            (view)="openDialog($event)"
-            [movie]="movie"
-            *ngFor="let movie of movies$ | async"
-        ></app-movie-list>
+        <h1>Movies</h1>
+        <div class="container">
+            <app-movie-card
+                (view)="openDialog($event)"
+                [movie]="movie"
+                *ngFor="let movie of movies$ | async"
+            ></app-movie-card>
+        </div>
     </section>
 </main>
