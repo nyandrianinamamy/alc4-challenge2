@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { environment } from 'src/environments/environment';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { MovieRootComponent } from './containers/movie-root/movie-root.component';
@@ -26,7 +25,7 @@ import * as fromMovie from './store/reducers/movie.reducers';
     providers: [
         {
             provide: MovieService,
-            useClass: environment.production ? MovieService : MovieMockService,
+            useClass: MovieMockService,
         },
     ],
 })
