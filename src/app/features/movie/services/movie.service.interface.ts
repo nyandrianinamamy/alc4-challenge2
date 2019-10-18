@@ -2,6 +2,6 @@ import { Observable } from 'rxjs';
 import { MovieInterface } from '../types/movie.interface';
 
 export interface MovieServiceInterface {
-    loadMovies(): Observable<MovieInterface[]>;
+    loadMovies(search?: string): Observable<MovieInterface[]>;
     insertToFavorites(movie: MovieInterface): Observable<boolean>;
 }

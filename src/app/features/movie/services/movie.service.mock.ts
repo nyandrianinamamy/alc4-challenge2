@@ -1,10 +1,10 @@
+import * as Fuse from 'fuse.js';
 import { Observable, of } from 'rxjs';
 import { MOVIES_MOCK } from '../constants/movies.mock';
 import { MovieInterface } from '../types/movie.interface';
 import { MovieServiceInterface } from './movie.service.interface';
-
 export class MovieMockService implements MovieServiceInterface {
-    loadMovies(): Observable<MovieInterface[]> {
+    loadMovies(search?: string): Observable<MovieInterface[]> {
         const favorites = this.getSavedFavorites();
         let res = [];
         //Add isFavorite keys if movies is favorite on session
@@ -12,6 +12,18 @@ export class MovieMockService implements MovieServiceInterface {
             ...mm,
             isFavorite: !!favorites.some((id) => id === mm.Id),
         }));
+
+        if (search) {
+            const options = {
+                keys: ['Title', 'Year'],
+                id: 'Id',
+            };
+            const fuse = new Fuse(res, options);
+
+            const searched = fuse.search(search);
+
+            res = res.filter((r) => searched.some((s) => s === r.Id));
+        }
         return of(res);
     }
     getSavedFavorites(): [] {

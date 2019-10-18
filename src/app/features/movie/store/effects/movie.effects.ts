@@ -18,7 +18,7 @@ export class MovieEffects {
         this.actions$.pipe(
             ofType(MovieActions.loadMovies),
             switchMap((action) =>
-                this.movieService.loadMovies().pipe(
+                this.movieService.loadMovies(action.search).pipe(
                     map((movies) => MovieActions.loadMoviesSuccess({ data: movies })),
                     catchError((error) => of(MovieActions.loadMoviesFailure(error))),
                 ),
@@ -40,7 +40,7 @@ export class MovieEffects {
             switchMap((action) =>
                 this.movieService
                     .insertToFavorites(action.data)
-                    .pipe(map((result) => MovieActions.loadMovies())),
+                    .pipe(map((result) => MovieActions.loadMovies({ search: null }))),
             ),
         ),
     );
@@ -49,7 +49,7 @@ export class MovieEffects {
         this.actions$.pipe(
             ofType(routeChange),
             filter((action) => action.path.includes('movies')),
-            map((action) => MovieActions.loadMovies()),
+            map((action) => MovieActions.loadMovies({ search: null })),
         ),
     );
 
@@ -57,7 +57,7 @@ export class MovieEffects {
         this.actions$.pipe(
             ofType(routeChange),
             filter((action) => action.path.includes('favorites')),
-            map((action) => MovieActions.loadMovies()),
+            map((action) => MovieActions.loadMovies({ search: null })),
         ),
     );
 }

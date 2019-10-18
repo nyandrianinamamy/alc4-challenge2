@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { createAction, props } from '@ngrx/store';
 import { MovieInterface } from '../../types/movie.interface';
 
-export const loadMovies = createAction('[MOVIE] Load Movies');
+export const loadMovies = createAction('[MOVIE] Load Movies', props<{ search?: string }>());
 export const loadMoviesSuccess = createAction(
     '[Movie] Load Movies Success',
     props<{ data: MovieInterface[] }>(),

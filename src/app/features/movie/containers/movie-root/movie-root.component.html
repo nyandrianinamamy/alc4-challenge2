@@ -17,7 +17,13 @@
         <div class="navbar__search">
             <label for="search">Search</label>
             <mat-icon>search</mat-icon>
-            <input type="text" name="search" placeholder="The avengers, ..." />
+            <input
+                type="text"
+                [(ngModel)]="searchField"
+                name="search"
+                placeholder="The avengers, ..."
+                (keyup)="search()"
+            />
         </div>
         <div class="fill"></div>
         <div class="navbar__profile">

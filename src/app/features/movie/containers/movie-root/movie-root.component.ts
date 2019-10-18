@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { MovieDetailsComponent } from '../../components/movie-details/movie-details.component';
-import { addToFavorite } from '../../store/actions/movie.actions';
+import { addToFavorite, loadMovies } from '../../store/actions/movie.actions';
 import { MovieState } from '../../store/reducers/movie.reducers';
 import { getMovies } from '../../store/selectors/movie.selectors';
 import { MovieInterface } from '../../types/movie.interface';
@@ -16,6 +16,7 @@ import { MovieInterface } from '../../types/movie.interface';
 export class MovieRootComponent implements OnInit {
     movies$: Observable<MovieInterface[]>;
     constructor(public dialog: MatDialog, private movieStore: Store<MovieState>) {}
+    searchField: string;
 
     openDialog(movie?: MovieInterface): void {
         const dialogRef = this.dialog.open(MovieDetailsComponent, {
@@ -24,13 +25,13 @@ export class MovieRootComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe((result) => {
-            console.log('The dialog was closed', result);
             this.movieStore.dispatch(addToFavorite({ data: result }));
         });
     }
     ngOnInit() {
         this.movies$ = this.movieStore.pipe(select(getMovies));
-
-        this.movies$.subscribe((result) => console.log(result));
+    }
+    search() {
+        this.movieStore.dispatch(loadMovies({ search: this.searchField }));
     }
 }
