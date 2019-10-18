@@ -35,6 +35,19 @@
         margin-top: 10px;
         margin-bottom: 10px;
         font-weight: bold;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+
+        .icon__heart--small {
+            background-image: url('/assets/images/like-colored.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 1em;
+            width: 1em;
+            height: 1em;
+        }
     }
 
     .detail__title {

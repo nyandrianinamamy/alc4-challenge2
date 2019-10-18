@@ -1,13 +1,13 @@
 <div mat-dialog-title class="heading">
-    <button (click)="onNoClick()" mat-fab aria-label="Example icon-button with a heart icon">
-        <mat-icon>arrow_back</mat-icon>
+    <button (click)="onNoClick()" mat-fab aria-label="Back icon" color="accent">
+        <mat-icon>close</mat-icon>
     </button>
     <div class="heading__title">
         <p>{{ data.Title }}</p>
         <p>{{ data.Genre }}</p>
     </div>
 </div>
-<div mat-dialog-content class="movie__details">
+<div mat-dialog-content class="movie__details dialog">
     <figure class="movie__image">
         <img [src]="data.Poster" />
     </figure>
@@ -63,10 +63,10 @@
     </section>
 </div>
 <div mat-dialog-actions class="actions" align="end">
-    <button [mat-dialog-close]="data" cdkFocusInitial *ngIf="!data.isFavorite">
+    <button (click)="onSubmit(data)" cdkFocusInitial class="actions--unliked" *ngIf="!isFavorite">
         Like <i class="heart-icon"></i>
     </button>
-    <button [mat-dialog-close]="data" cdkFocusInitial *ngIf="data.isFavorite">
+    <button (click)="onSubmit(data)" cdkFocusInitial *ngIf="isFavorite">
         Liked <i class="heart-icon"></i>
     </button>
 </div>

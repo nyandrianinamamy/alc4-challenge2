@@ -11,10 +11,18 @@ export class MovieDetailsComponent implements OnInit {
     constructor(
         public dialogRef: MatDialogRef<MovieDetailsComponent>,
         @Inject(MAT_DIALOG_DATA) public data: MovieInterface,
-    ) {}
+    ) {
+        this.isFavorite = data.isFavorite;
+    }
+
+    isFavorite: boolean;
 
     onNoClick(): void {
         this.dialogRef.close();
+    }
+    onSubmit(data: any): void {
+        this.isFavorite = !this.isFavorite;
+        setTimeout(() => this.dialogRef.close(data), 500);
     }
     ngOnInit() {}
 }

@@ -2,7 +2,11 @@
     <figure>
         <img [src]="movie.Poster" />
     </figure>
-    <p class="movie__title">{{ movie.Title }}</p>
+    <div class="movie__title">
+        <p>{{ movie.Title }}</p>
+        <i *ngIf="movie.isFavorite" class="icon__heart--small"></i>
+    </div>
+
     <div class="detail__title">
         <p>Released</p>
         <p>Runtime</p>
