@@ -1,11 +1,19 @@
 {
-    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "editor.mouseWheelZoom": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "tslint.enable": true,
     "prettier.bracketSpacing": true,
-    "prettier.tabWidth": 4,
+    "prettier.printWidth": 100,
     "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "editor.formatOnSave": true,
     "prettier.trailingComma": "all",
     "prettier.arrowParens": "always",
     "[typescript]": {
+        "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
             "source.organizeImports": true
         }
