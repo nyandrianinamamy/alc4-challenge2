@@ -63,5 +63,10 @@
     </section>
 </div>
 <div mat-dialog-actions class="actions" align="end">
-    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Like</button>
+    <button [mat-dialog-close]="data" cdkFocusInitial *ngIf="!data.isFavorite">
+        Like <i class="heart-icon"></i>
+    </button>
+    <button [mat-dialog-close]="data" cdkFocusInitial *ngIf="data.isFavorite">
+        Liked <i class="heart-icon"></i>
+    </button>
 </div>

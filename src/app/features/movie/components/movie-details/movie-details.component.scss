@@ -61,12 +61,45 @@
                 color: #7ca2d5;
                 li {
                     margin-top: 5px;
+                    word-wrap: break-word;
+                    max-width: 13em;
                 }
             }
         }
 
         .about {
             margin-right: 50px;
+        }
+    }
+}
+
+.actions {
+    height: 5em;
+    button {
+        width: 10em;
+        height: 3em;
+        border: 1px solid white;
+        background-color: red;
+        outline: none;
+        color: white;
+        border-radius: 25px;
+        position: relative;
+        font-size: 1em;
+        padding-right: 25px;
+
+        .heart-icon {
+            background-image: url('/assets/images/like-colored.png');
+            position: absolute;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 1.5em;
+            height: 3.1em;
+            width: 3.1em;
+            right: -2px;
+            top: -1px;
+            background-color: white;
+            border-radius: 50%;
+            border: 4px solid red;
         }
     }
 }
