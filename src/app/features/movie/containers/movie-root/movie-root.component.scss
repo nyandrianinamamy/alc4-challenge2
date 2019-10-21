@@ -188,6 +188,7 @@ main {
         flex-direction: column;
         overflow: scroll;
         max-height: calc(100vh - 80px);
+        position: relative;
         h1 {
             margin-left: 2em;
         }
@@ -199,6 +200,15 @@ main {
             padding-left: 4em;
             flex-wrap: wrap;
             height: 100%;
+        }
+        .spinner {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.1);
         }
     }
 }

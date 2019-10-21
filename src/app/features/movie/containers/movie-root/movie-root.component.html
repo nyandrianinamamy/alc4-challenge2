@@ -57,5 +57,9 @@
                 *ngFor="let movie of movies$ | async"
             ></app-movie-card>
         </div>
+        <div class="spinner" *ngIf="isLoading$ | async">
+            <mat-progress-spinner class="example-margin" color="primary" mode="indeterminate">
+            </mat-progress-spinner>
+        </div>
     </section>
 </main>

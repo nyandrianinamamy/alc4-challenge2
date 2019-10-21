@@ -1,5 +1,6 @@
 import * as Fuse from 'fuse.js';
 import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { MOVIES_MOCK } from '../constants/movies.mock';
 import { MovieInterface } from '../types/movie.interface';
 import { MovieServiceInterface } from './movie.service.interface';
@@ -24,7 +25,7 @@ export class MovieMockService implements MovieServiceInterface {
 
             res = res.filter((r) => searched.some((s) => s === r.Id));
         }
-        return of(res);
+        return of(res).pipe(delay(1000));
     }
     getSavedFavorites(): [] {
         return JSON.parse(sessionStorage.getItem('favorites')) || [];
