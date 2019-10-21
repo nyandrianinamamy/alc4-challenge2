@@ -186,6 +186,8 @@ main {
     .movie__list {
         display: flex;
         flex-direction: column;
+        overflow: scroll;
+        max-height: calc(100vh - 80px);
         h1 {
             margin-left: 2em;
         }
