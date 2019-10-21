@@ -30,13 +30,15 @@ export class MovieMockService implements MovieServiceInterface {
         return JSON.parse(sessionStorage.getItem('favorites')) || [];
     }
     insertToFavorites(movie: MovieInterface): Observable<boolean> {
-        let moviesId: string[] = JSON.parse(sessionStorage.getItem('favorites')) || [];
-        if (moviesId.length === 0 || !moviesId.some((id) => id === movie.Id)) {
-            moviesId.push(movie.Id);
-        } else {
-            moviesId = moviesId.filter((id) => id !== movie.Id);
+        if (movie) {
+            let moviesId: string[] = JSON.parse(sessionStorage.getItem('favorites')) || [];
+            if (moviesId.length === 0 || !moviesId.some((id) => id === movie.Id)) {
+                moviesId.push(movie.Id);
+            } else {
+                moviesId = moviesId.filter((id) => id !== movie.Id);
+            }
+            sessionStorage.setItem('favorites', JSON.stringify(moviesId));
+            return of(true);
         }
-        sessionStorage.setItem('favorites', JSON.stringify(moviesId));
-        return of(true);
     }
 }
