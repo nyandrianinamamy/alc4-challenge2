@@ -1,6 +1,9 @@
-# Angular NGRX Architecture
+# Angular Netflix like Application for the Google ALC 4 Program
 
-Base Angular architecture for large scale application, bundled with schematics.
+Base Angular architecture for large scale application.
+
+## Demo
+[https://moviezzz.netlify.com](https://moviezzz.netlify.com)
 
 ## Getting Started
 
@@ -28,7 +31,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Authors
 
--   **Ny Hasinavalona R.** - _Initial work_ - [nyhasina](https://github.com/nyhasina)
 -   **Ny Andrianina Mamy R.** - _Initial work_ - [nyandrianinamamy](https://github.com/nyandrianinamamy)
 
 ## License
