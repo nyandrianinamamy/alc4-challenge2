@@ -50,7 +50,7 @@
     </header>
     <section class="movie__list">
         <h1>Movies</h1>
-        <div class="container">
+        <div class="container" *ngIf="!(isLoading$ | async)">
             <app-movie-card
                 (view)="openDialog($event)"
                 [movie]="movie"

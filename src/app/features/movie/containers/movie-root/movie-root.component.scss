@@ -200,6 +200,30 @@ main {
             padding-left: 4em;
             flex-wrap: wrap;
             height: 100%;
+            @keyframes FadeIn {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.1);
+                }
+
+                85% {
+                    opacity: 1;
+                    transform: scale(1.05);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+            app-movie-card {
+                animation: FadeIn 0.01s linear;
+                animation-fill-mode: both;
+            }
+
+            @for $i from 1 through 10 {
+                app-movie-card:nth-child(#{$i}n) {
+                    animation-delay: #{$i * 0.09}s;
+                }
+            }
         }
         .spinner {
             position: absolute;
