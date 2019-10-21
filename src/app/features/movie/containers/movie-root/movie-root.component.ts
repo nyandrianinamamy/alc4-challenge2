@@ -25,7 +25,8 @@ export class MovieRootComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe((result) => {
-            this.movieStore.dispatch(addToFavorite({ data: result }));
+            console.log('Data dialog dispatched');
+            result && this.movieStore.dispatch(addToFavorite({ data: result }));
         });
     }
     ngOnInit() {

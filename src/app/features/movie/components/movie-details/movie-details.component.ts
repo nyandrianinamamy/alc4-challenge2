@@ -22,7 +22,7 @@ export class MovieDetailsComponent implements OnInit {
     }
     onSubmit(data: any): void {
         this.isFavorite = !this.isFavorite;
-        setTimeout(() => this.dialogRef.close(data), 500);
+        setTimeout(() => this.dialogRef.close(data), 300);
     }
     ngOnInit() {}
 }
