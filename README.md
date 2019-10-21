@@ -1,6 +1,6 @@
-# Angular Netflix like Application for the Google ALC 4 Program
+# Google ALC 4 Scholarship Challenge 2
 
-Base Angular architecture for large scale application.
+Mini Netflix application
 
 ## Demo
 [https://moviezzz.netlify.com](https://moviezzz.netlify.com)
@@ -9,25 +9,41 @@ Base Angular architecture for large scale application.
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-## Development server
+### Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+You need to have NodeJS installed in your local environment
 
-## Code scaffolding
+### Installing
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+A step by step series of examples that tell you how to get a development env running
 
-## Build
+Clone the project
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+git clone https://github.com/nyandrianinamamy/alc4-challenge2.git
+cd alc4-challenge2
+```
 
-## Running unit tests
+Install dependencies
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+npm install
+```
 
-## Running end-to-end tests
+Run
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+ng serve
+```
+
+
+## Running the tests
+
+Unit testing
+
+```
+npm run test
+```
 
 ## Authors
 
